@@ -10,11 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install GTest
-        run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - name: Configure CMake
-        run: cmake -S . -B build
+        run: mkdir build && cd build && cmake ..
       - name: Build execution file
-        run: cmake --build build
-      - name: Run Test
-        run: ./build/gtests
+        run: cmake --build .
+      - name: Run Te
+        run: ./gtests

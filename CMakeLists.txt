@@ -12,14 +12,15 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(testing main.cpp)
+enable_testing()
+
+add_executable(testing src/main.cpp)
 
 # Testing zone
-enable_testing()
 add_executable(
         gtests
-        sum_test.cpp
-        gtests_main.cpp
+        tests/sum_test.cpp
+        tests/gtests_main.cpp
 )
 
 target_link_libraries(

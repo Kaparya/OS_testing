@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "operations.hpp"
+#include "../src/operations.hpp"
 
 TEST(OperationsTest, Sum) {
     EXPECT_EQ(sum(1, 3), 4);
