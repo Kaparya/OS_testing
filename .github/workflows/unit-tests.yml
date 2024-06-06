@@ -10,11 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check
-        run: ls -v
-      - name: Configure CMake
-        run: mkdir build && cd build && cmake ..
-      - name: Build execution file
-        run: cmake --build .
-      - name: Run Te
-        run: ./gtests
+      - name: Configure
+        run: |
+          cmake -S. -B build -DCMAKE_BUILD_TYPE=Debug
+      - name: Build
+        run: |
+          cmake --build build --config Debug
+      - name: Test
+        run: |
+          cd build
+          ctest -C Debug --output-on-failure --verbose
