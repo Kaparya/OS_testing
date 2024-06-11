@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: clang-format
         run: >
-          git ls-files -z -- '*.h' '*.cc' |
+          git ls-files -z -- '*.hpp' '*.cpp' |
           xargs -P 2 -n 50 -0 clang-format-14 -i
       - name: check-diff
         run: git diff --ignore-submodules=all --color --exit-code .
