@@ -27,9 +27,9 @@ int main() {
             result = division(lhs, rhs);
             break;
         default:
-            std::cout << "Wrong number of operation!";
+            std::cout << "Wrong number of operation!" << std::endl;
             return -1;
     }
-    std::cout << result;
+    std::cout << result << std::endl;
     return 0;
 }

@@ -24,3 +24,9 @@ if(CMAKE_CXX_COMPILER_ID MATCHES GNU AND CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux"
             "--coverage"
     )
 endif()
+
+add_executable(
+        main
+        main.cpp
+        operations.cpp
+)
