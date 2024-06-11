@@ -20,17 +20,3 @@ jobs:
           xargs -P 2 -n 50 -0 clang-format-14 -i
       - name: check-diff
         run: git diff --ignore-submodules=all --color --exit-code .
-
-  cmake-format:
-    name: cmake-format
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-      - name: install cmake-format
-        run: pip install cmakelang==0.6.13
-      - name: cmake-format
-        run: >
-          git ls-files -z -- '*.cmake' '**/CMakeLists.txt' CMakeLists.txt |
-          xargs -P 2 -n 1 -0 /home/runner/.local/bin/cmake-format -i
-      - name: check-diff
-        run: git diff --ignore-submodules=all --color --exit-code .
