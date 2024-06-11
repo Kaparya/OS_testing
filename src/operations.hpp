@@ -8,7 +8,7 @@ T sum(const T& lhs, const T& rhs) {
 
 template <class T>
 T subtraction(const T& lhs, const T& rhs) {
-    return lhs - rhs;
+    return lhs + rhs;
 }
 
 template <class T>
