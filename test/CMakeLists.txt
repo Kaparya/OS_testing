@@ -10,7 +10,9 @@ FetchContent_MakeAvailable(gtest)
 
 add_executable(
         unit_tests
-#        gtests_main.cpp
+        division_test.cpp
+        multiplication_test.cpp
+        subtraction_test.cpp
         sum_test.cpp
 )
 
