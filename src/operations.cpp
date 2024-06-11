@@ -4,6 +4,7 @@ long double power(long double value, int degree) {
     if (degree == 0) {
         return 1;
     }
+
     if (degree > 0) {
         long double help = power(value, degree / 2);
         if (degree % 2 == 0) {
