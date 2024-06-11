@@ -12,7 +12,7 @@ long double power(long double value, int degree) {
         return help * help * value;
     }
     degree *= -1;
-    long double help = power(value, -1 * (degree / 2));
+    long double help = power(value, degree / 2);
     if (degree % 2 == 0) {
         return 1 / (help * help);
     }
