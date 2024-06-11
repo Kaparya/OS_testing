@@ -1,32 +1,26 @@
-cmake_minimum_required(VERSION 3.27)
-project(testing)
+cmake_minimum_required(VERSION 3.13)
 
-set(CMAKE_CXX_STANDARD 17)
+project(OS_testing LANGUAGES CXX)
+
+# set the C++ standard
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-include(FetchContent)
-FetchContent_Declare(
-        googletest
-        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+# place binaries and libraries according to GNU standards
+include(GNUInstallDirs)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+
+# we cannot analyse results without gcov
+find_program(GCOV_PATH gcov)
+if(NOT GCOV_PATH)
+    message(FATAL_ERROR "Code coverage analysis requires gcov!")
+endif()
+
+add_subdirectory(src)
 
 enable_testing()
 
-add_executable(testing src/main.cpp)
-
-# Testing zone
-add_executable(
-        gtests
-        tests/sum_test.cpp
-        tests/gtests_main.cpp
-)
-
-target_link_libraries(
-        gtests
-        GTest::gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(gtests)
+add_subdirectory(test)
