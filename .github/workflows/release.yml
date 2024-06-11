@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout unit-tests
         uses: actions/checkout@v2
