@@ -28,10 +28,17 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             - Auto-generated release ${{ github.ref }}
-          asset_path: ./build/bin/main
-          asset_name: calculator
-          asset_content_type: application/octet-stream
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+
+      - name: Upload Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/bin/main
+          asset_name: calculator
+          asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
