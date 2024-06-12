@@ -2,12 +2,18 @@
 
 #include <iostream>
 
-int main() {
+std::pair<long double, long double> getInput() {
     long double lhs, rhs;
     std::cout << "Input first number: ";
     std::cin >> lhs;
     std::cout << "Input second number: ";
     std::cin >> rhs;
+    return {lhs, rhs};
+}
+
+int main() {
+
+    auto [lhs, rhs] = getInput();
     int operation;
     std::cout << "0. +\n1. -\n2. *\n3. /\n";
     std::cout << "Input number of operation: ";
