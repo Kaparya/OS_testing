@@ -1,0 +1,26 @@
+name: Unit tests
+
+on:
+  push:
+    branches: [ main, develop, release ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ macos-latest ]
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure
+        run: docker build . -t calculator
+      - name: Build
+        run: cmake --build build
+      - name: Test
+        run: docker run calculator
