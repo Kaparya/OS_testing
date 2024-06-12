@@ -25,5 +25,5 @@ jobs:
 
       - name: Build and push image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/calculator:${{ github.event.number }} .
-          docker push ${{ secrets.DOCKER_USERNAME }}/calculator:${{ github.event.number }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/calculator:ver-${{ github.event.number }} .
+          docker push ${{ secrets.DOCKER_USERNAME }}/calculator:ver-${{ github.event.number }}
