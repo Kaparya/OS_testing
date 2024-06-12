@@ -1,5 +1,9 @@
 #include "operations.hpp"
 
+long long modulo(const long long& lhs, const long long& rhs) {
+    return lhs % rhs;
+}
+
 long double power(long double value, int degree) {
     if (degree == 0) {
         return 1;
