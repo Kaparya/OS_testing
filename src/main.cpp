@@ -9,7 +9,7 @@ int main() {
     std::cout << "Input second number: ";
     std::cin >> rhs;
     int operation;
-    std::cout << "0. +\n1. -\n2. *\n3. /\n";
+    std::cout << "0. +\n1. -\n2. *\n3. /\n4. %\n";
     std::cout << "Input number of operation: ";
     std::cin >> operation;
     long double result;
@@ -25,6 +25,9 @@ int main() {
             break;
         case 3:
             result = division(lhs, rhs);
+            break;
+        case 4:
+            result = modulo(lhs, rhs);
             break;
         default:
             std::cout << "Wrong number of operation!" << std::endl;
