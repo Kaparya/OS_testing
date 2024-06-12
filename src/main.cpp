@@ -14,9 +14,11 @@ std::pair<long double, long double> getInput() {
 int main() {
     auto [lhs, rhs] = getInput();
     int operation;
+
     std::cout << "0. +\n1. -\n2. *\n3. /\n4. %\n";
     std::cout << "Input number of operation: ";
     std::cin >> operation;
+
     long double result;
     switch (operation) {
         case 0:
