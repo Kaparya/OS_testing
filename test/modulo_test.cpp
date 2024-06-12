@@ -2,7 +2,7 @@
 
 #include "../src/operations.hpp"
 
-TEST(OperationsTest, Division) {
-    EXPECT_EQ(division(1, 3), 1);
-    EXPECT_EQ(division(1, 1), 0);
+TEST(OperationsTest, Modulo) {
+    EXPECT_EQ(modulo(1, 3), 1);
+    EXPECT_EQ(modulo(1, 1), 0);
 }

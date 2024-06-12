@@ -12,7 +12,6 @@ std::pair<long double, long double> getInput() {
 }
 
 int main() {
-
     auto [lhs, rhs] = getInput();
     int operation;
     std::cout << "0. +\n1. -\n2. *\n3. /\n4. %\n";
@@ -39,7 +38,6 @@ int main() {
             std::cout << "Wrong number of operation!" << std::endl;
             return -1;
     }
-
     std::cout << result << std::endl;
     return 0;
 }
