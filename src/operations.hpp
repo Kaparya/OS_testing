@@ -18,6 +18,9 @@ T multiplication(const T& lhs, const T& rhs) {
 
 template <class T>
 T division(const T& lhs, const T& rhs) {
+    if (rhs == 0) {
+        return T();
+    }
     return lhs / rhs;
 }
 

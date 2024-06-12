@@ -1,6 +1,9 @@
 #include "operations.hpp"
 
 long long modulo(const long long& lhs, const long long& rhs) {
+    if (rhs == 0) {
+        return 0;
+    }
     return lhs % rhs;
 }
 
