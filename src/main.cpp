@@ -36,6 +36,7 @@ int main() {
             std::cout << "Wrong number of operation!" << std::endl;
             return -1;
     }
+
     std::cout << result << std::endl;
     return 0;
 }
